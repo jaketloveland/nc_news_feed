@@ -22,3 +22,12 @@ export function getComments(id) {
     return response.data;
   });
 }
+
+export function upVote(id) {
+  console.log("Hello");
+  return ncNewsAPi
+    .patch(`/api/articles/${id}/`, { inc_votes: 1 })
+    .then((response) => {
+      return response.data.updatedArticle.votes;
+    });
+}
