@@ -70,7 +70,7 @@
 .commentBody {
   margin: 0;
   background-color: orange;
- 
+}
 
 @media (max-width: 1200px) {
   .articles-container {
