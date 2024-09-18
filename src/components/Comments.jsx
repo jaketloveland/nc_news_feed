@@ -7,7 +7,6 @@ const Comments = ({ article_id }) => {
 
   useEffect(() => {
     getComments(article_id).then((data) => {
-      console.log(data, "<-- data");
       setAllComments(data.msg);
     });
   }, [article_id]);
@@ -26,7 +25,6 @@ const Comments = ({ article_id }) => {
                 <p> {comment.body} </p>
                 <p> votes: {comment.votes} </p>
               </section>
-              <button> vote </button>
             </div>
           );
         })}
