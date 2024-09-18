@@ -9,3 +9,16 @@ export function getArticles() {
     return response.data;
   });
 }
+
+export function getArticle(id) {
+  return ncNewsAPi.get(`/api/articles/${id}`).then((response) => {
+    return response.data;
+  });
+}
+
+export function getComments(id) {
+  console.log(id, "<--- id");
+  return ncNewsAPi.get(`/api/articles/${id}/comments`).then((response) => {
+    return response.data;
+  });
+}

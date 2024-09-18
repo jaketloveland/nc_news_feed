@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../../nc_news.API";
+import { Link } from "react-router-dom";
 
 const Articles = () => {
   const [allArticles, setAllArticles] = useState([]);
@@ -8,12 +9,16 @@ const Articles = () => {
     getArticles().then((data) => {
       const articles = data.map((article) => {
         return (
-          <div key={article.article_id} className="article">
-            <p className="article-title"> {article.title} </p>
-            <p className="author"> by {article.author} </p>
-            <img src={article.article_img_url} alt={article.title} />
-            <p> votes: {article.votes}</p>
-          </div>
+          <Link to={"/articles/" + article.article_id} key={article.article_id}>
+            {
+              <div className="article">
+                <p className="article-title"> {article.title} </p>
+                <p className="author"> by {article.author} </p>
+                <img src={article.article_img_url} alt={article.title} />
+                <p> votes: {article.votes}</p>
+              </div>
+            }
+          </Link>
         );
       });
 
@@ -21,7 +26,11 @@ const Articles = () => {
     }, []);
   });
 
-  return <div className="articles-container"> {allArticles} </div>;
+  return allArticles.length ? (
+    <div className="articles-container"> {allArticles} </div>
+  ) : (
+    <p> Loading </p>
+  );
 };
 
 export default Articles;

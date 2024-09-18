@@ -1,7 +1,18 @@
+.header-container {
+  background-color: blue;
+}
+
 .header {
-  text-align: center;
-  color: #000;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: right;
+  color: white;
+  margin-right: 30px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-decoration-line: none;
+}
+
+.home-link {
+  text-decoration-line: underline;
+  color: white;
 }
 
 .articles-container {
@@ -26,6 +37,41 @@
   font-weight: bold;
   margin-top: 0;
 }
+
+.articlePage {
+  text-align: center;
+}
+
+.articlePageImg {
+  text-align: left;
+  max-width: 500px;
+  padding: 5px;
+}
+
+.articlePageBody {
+  font-family: "Seg UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  margin-left: 30vh;
+  margin-right: 30vh;
+}
+
+.comments {
+  font-family: "Seg UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  margin-left: 30vh;
+  margin-right: 30vh;
+}
+
+.commentAuthor {
+  background-color: grey;
+  margin-bottom: 0;
+}
+
+.commentBody {
+  margin: 0;
+  background-color: orange;
+}
+
 @media (max-width: 1200px) {
   .articles-container {
     grid-template-columns: repeat(3, 1fr);
