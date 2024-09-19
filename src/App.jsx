@@ -8,6 +8,8 @@ import { Routes, Route } from "react-router-dom";
 import Article from "./components/Article";
 
 function App() {
+  const [filter, setFilter] = useState("null");
+
   return (
     <div>
       <Routes>
