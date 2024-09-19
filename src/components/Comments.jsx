@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { getComments, postComment } from "../../nc_news.API";
 import { useState } from "react";
 import { getUsers } from "../../nc_news.API";
+import { deleteComment } from "../../nc_news.API";
+import DeleteComment from "./DeleteComment";
 
 const Comments = ({ article_id }) => {
   const [allComments, setAllComments] = useState([]);
@@ -82,7 +84,11 @@ const Comments = ({ article_id }) => {
                 <p> {comment.body} </p>
                 <p> votes: {comment.votes} </p>
               </section>
-              <p className="Delete Comment"> delete comment </p>
+              <DeleteComment
+                commentId={comment.comment_id}
+                setAllComments={setAllComments}
+                className="delete"
+              />
             </div>
           );
         })}

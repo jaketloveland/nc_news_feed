@@ -47,3 +47,9 @@ export function getUsers() {
     return response.data.users;
   });
 }
+
+export function deleteComment(id) {
+  return ncNewsAPi.delete(`/api/comments/${id}`).then((response) => {
+    console.log(response.data.length, "<--- delete response");
+  });
+}
