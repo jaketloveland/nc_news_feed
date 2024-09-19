@@ -92,5 +92,3 @@ const Comments = ({ article_id }) => {
 };
 
 export default Comments;
-
-// post the comment, get the form and selectuser thing working

@@ -32,7 +32,6 @@ export function upVote(id) {
 }
 
 export function postComment(selectedUser, newComment, article_id) {
-  console.log(selectedUser, "<-- selected");
   return ncNewsAPi
     .post(`/api/articles/${article_id}/comments`, {
       username: selectedUser,
