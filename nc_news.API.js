@@ -17,7 +17,6 @@ export function getArticle(id) {
 }
 
 export function getComments(id) {
-  console.log(id, "<--- id");
   return ncNewsAPi.get(`/api/articles/${id}/comments`).then((response) => {
     return response.data;
   });
@@ -30,4 +29,21 @@ export function upVote(id) {
     .then((response) => {
       return response.data.updatedArticle.votes;
     });
+}
+
+export function postComment(selectedUser, newComment, article_id) {
+  return ncNewsAPi
+    .post(`/api/articles/${article_id}/comments`, {
+      username: selectedUser,
+      body: newComment,
+    })
+    .then((response) => {
+      return response.data.article;
+    });
+}
+
+export function getUsers() {
+  return ncNewsAPi.get("/api/users").then((response) => {
+    return response.data.users;
+  });
 }
