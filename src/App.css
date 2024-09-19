@@ -60,6 +60,7 @@
   text-align: left;
   margin-left: 30vh;
   margin-right: 30vh;
+  color: black;
 }
 
 .commentAuthor {
@@ -70,6 +71,11 @@
 .commentBody {
   margin: 0;
   background-color: orange;
+}
+
+.delete {
+  color: red;
+  text-decoration: underline;
 }
 
 @media (max-width: 1200px) {
