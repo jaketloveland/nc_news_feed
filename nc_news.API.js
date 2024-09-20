@@ -4,9 +4,13 @@ const ncNewsAPi = axios.create({
   baseURL: "https://articlesapi-516n.onrender.com/",
 });
 
-export function getArticles(filter) {
-  if (filter === "All") {
+export function getArticles(filter, sortBy) {
+  if (filter === "All" && sortBy === "default") {
     return ncNewsAPi.get("/api/articles/").then((response) => {
+      return response.data;
+    });
+  } else if (sortBy !== "default") {
+    return ncNewsAPi.get(`/api/articles?sort_by=${sortBy}`).then((response) => {
       return response.data;
     });
   } else {
@@ -54,9 +58,7 @@ export function getUsers() {
 }
 
 export function deleteComment(id) {
-  return ncNewsAPi.delete(`/api/comments/${id}`).then((response) => {
-    console.log(response.data.length, "<--- delete response");
-  });
+  return ncNewsAPi.delete(`/api/comments/${id}`).then((response) => {});
 }
 
 export function getTopics() {

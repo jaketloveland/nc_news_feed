@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { getArticles } from "../../nc_news.API";
 import { Link } from "react-router-dom";
 
-const Articles = ({ filter }) => {
+const Articles = ({ filter, sortBy }) => {
   const [allArticles, setAllArticles] = useState([]);
 
   useEffect(() => {
-    getArticles(filter).then((data) => {
+    getArticles(filter, sortBy).then((data) => {
       const articles = data.map((article) => {
         return (
           <Link to={"/articles/" + article.article_id} key={article.article_id}>
@@ -21,7 +21,7 @@ const Articles = ({ filter }) => {
       });
       setAllArticles(articles);
     });
-  }, []);
+  }, [filter, sortBy]);
 
   return allArticles.length ? (
     <div className="articles-container"> {allArticles} </div>
