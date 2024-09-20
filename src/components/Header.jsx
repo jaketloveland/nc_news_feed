@@ -1,16 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ setFilter }) => {
+  const navigate = useNavigate();
+
+  const handleHomeClick = () => {
+    setFilter("All");
+    navigate("/");
+  };
+
   return (
     <div className="header-container">
-      <Link to={"/"}>
-        <h1 className="header">
-          The <br /> Article App
-        </h1>
-      </Link>
-      <Link to={"/"} className="home-link">
-        <nav> Home </nav>
-      </Link>
+      <h1
+        className="header"
+        style={{ cursor: "pointer" }}
+        onClick={handleHomeClick}
+      >
+        The <br /> Article App
+      </h1>
+      <nav onClick={handleHomeClick} className="home-link">
+        Home
+      </nav>
     </div>
   );
 };

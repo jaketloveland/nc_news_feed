@@ -1,14 +1,13 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./components/Header";
-import Articles from "./components/Articles";
 import { Routes, Route } from "react-router-dom";
 import Article from "./components/Article";
+import Filter from "./components/Filter";
+import Articles from "./components/Articles";
 
 function App() {
-  const [filter, setFilter] = useState("null");
+  const [filter, setFilter] = useState("All");
 
   return (
     <div>
@@ -17,16 +16,26 @@ function App() {
           path="/"
           element={
             <div>
-              <Header />
-              <Articles />
+              <Header setFilter={setFilter} />
+              <Filter setFilter={setFilter} filter={filter} />
+              <Articles filter={filter} />
             </div>
           }
         />
         <Route
+          path="/articles"
+          element={
+            <div>
+              <Header setFilter={setFilter} />
+              <Articles filter={filter} />
+            </div>
+          }
+        ></Route>
+        <Route
           path="/articles/:article_id"
           element={
             <div>
-              <Header />
+              <Header setFilter={setFilter} />
               <Article />
             </div>
           }
@@ -35,5 +44,7 @@ function App() {
     </div>
   );
 }
+
+// add element for articles linking to new article page
 
 export default App;

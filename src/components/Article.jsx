@@ -33,7 +33,6 @@ const Article = () => {
           }
         })
         .catch((err) => {
-          consoe.log("we are in the catch");
           setVotingDisabled(false);
           setVotes((prevVotes) => prevVotes - 1);
         });
