@@ -6,6 +6,7 @@ import Article from "./components/Article";
 import Filter from "./components/Filter";
 import Articles from "./components/Articles";
 import SortbyFilter from "./components/SortbyFilter";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   const [filter, setFilter] = useState("All");
@@ -48,6 +49,7 @@ function App() {
             </div>
           }
         />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );
