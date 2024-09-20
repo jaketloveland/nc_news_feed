@@ -1,10 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 
-const Header = ({ setFilter }) => {
+const Header = ({ setFilter, setSortBy }) => {
   const navigate = useNavigate();
 
   const handleHomeClick = () => {
     setFilter("All");
+    setSortBy("default");
     navigate("/");
   };
 
